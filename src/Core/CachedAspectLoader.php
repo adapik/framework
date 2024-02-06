@@ -25,6 +25,8 @@ use ReflectionClass;
  */
 class CachedAspectLoader extends AspectLoader
 {
+    private $_loader;
+
     /**
      * Path to the cache directory
      */
@@ -86,9 +88,9 @@ class CachedAspectLoader extends AspectLoader
     public function __get($name)
     {
         if ($name === 'loader') {
-            $this->loader = $this->container->get($this->loaderId);
+            $this->_loader = $this->container->get($this->loaderId);
 
-            return $this->loader;
+            return $this->_loader;
         }
         throw new RuntimeException('Not implemented');
     }

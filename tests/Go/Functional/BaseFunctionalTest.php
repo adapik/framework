@@ -127,7 +127,8 @@ abstract class BaseFunctionalTest extends TestCase
         ];
 
         $commandLine = array_merge($commandLine, $args);
-        $process     = new Process($commandLine, null, ['GO_AOP_CONFIGURATION' => $this->getConfigurationName()]);
+        $commandLine = \implode(' ', $commandLine);
+        $process     = Process::fromShellCommandline($commandLine, null, ['GO_AOP_CONFIGURATION' => $this->getConfigurationName()]);
         $process->run();
 
         if ($expectSuccess) {

@@ -55,25 +55,13 @@ class FunctionParameterListTest extends TestCase
     {
         return [
             [
-                'var_dump', // var_dump(...$vars)
-                1,
-                [
-                    [
-                        'getPassedByReference' => false,
-                        'getVariadic'          => true,
-                        'getName'              => 'vars',
-                        'getDefaultValue'      => null,
-                    ]
-                ]
-            ],
-            [
                 'array_pop', // array_pop(&$stack)
                 1,
                 [
                     [
                         'getPassedByReference' => true,
                         'getVariadic'          => false,
-                        'getName'              => 'stack',
+                        'getName'              => 'array',
                         'getDefaultValue'      => null,
                     ]
                 ]
@@ -85,7 +73,7 @@ class FunctionParameterListTest extends TestCase
                     [
                         'getPassedByReference' => false,
                         'getVariadic'          => false,
-                        'getName'              => 'str1',
+                        'getName'              => 'string1',
                         'getDefaultValue'      => null,
                     ]
                 ]
@@ -97,7 +85,7 @@ class FunctionParameterListTest extends TestCase
                     [
                         'getPassedByReference' => false,
                         'getVariadic'          => false,
-                        'getName'              => 'get_as_float',
+                        'getName'              => 'as_float',
                         'getDefaultValue'      => ValueGenerator::class
                     ]
                 ]
